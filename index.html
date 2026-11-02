@@ -12,7 +12,7 @@ html{scroll-behavior:smooth}
 body{font-family:'Manrope',sans-serif;font-weight:300;background:var(--bg);color:var(--ink);line-height:1.7}
 h1,h2,h3{font-weight:300;letter-spacing:-.01em}
 select,button,input,textarea{font-family:inherit}
-header{position:sticky;top:0;z-index:20;background:rgba(250,248,245,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--linia);display:flex;justify-content:space-between;align-items:center;padding:14px 5vw}
+header{position:sticky;top:0;z-index:20;background:rgba(250,248,245,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--linia);display:flex;justify-content:space-between;align-items:center;padding:18px 5vw}
 .logo{font-size:1.4rem;letter-spacing:.28em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
 .logo b{font-weight:500;color:var(--lf)}
 nav{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
@@ -25,7 +25,7 @@ nav a:hover,nav a.on{background:var(--ls);color:var(--lf)}
 .hero h1{font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.1;margin-bottom:22px;font-weight:200}
 .hero h1 em{font-style:normal;color:var(--lf)}
 .hero p{max-width:540px;margin:0 auto 34px;color:var(--muted)}
-.btn{display:inline-block;background:var(--lf);color:#fff;border:1px solid var(--lf);padding:13px 30px;font-size:.72rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;text-decoration:none;border-radius:999px;transition:.3s}
+.btn{display:inline-block;background:var(--lf);color:#fff;border:1px solid var(--lf);padding:13px 30px;font-size:.72rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-radius:999px;transition:.3s;text-decoration:none}
 .btn:hover{background:var(--lila);border-color:var(--lila);color:var(--ink)}
 .btn.alt{background:transparent;color:var(--lf)}
 .btn.alt:hover{background:var(--ls)}
@@ -89,7 +89,7 @@ textarea{min-height:140px;resize:vertical}
 .msg{margin-top:12px;color:var(--lf);font-size:.9rem}
 #overlay{position:fixed;inset:0;background:rgba(47,42,59,.3);opacity:0;pointer-events:none;transition:.3s;z-index:30}
 #overlay.on{opacity:1;pointer-events:auto}
-#cart{position:fixed;top:0;right:-440px;width:min(420px,100%);height:100%;background:var(--bg);z-index:40;transition:.4s;display:flex;flex-direction:column;padding:26px;border-radius:24px 0 0 24px}
+#cart{position:fixed;top:0;right:-440px;width:min(420px,100%);height:100%;background:var(--bg);z-index:40;transition:.4s;display:flex;flex-direction:column;padding:26px;border-radius:24px 0 0 24px;box-shadow:-20px 0 40px rgba(47,42,59,.12)}
 #cart.on{right:0}
 #cart h2{margin-bottom:14px}
 #items{flex:1;overflow:auto}
@@ -108,7 +108,7 @@ footer{text-align:center;padding:50px 5vw;border-top:1px solid var(--linia);font
 .sl img{width:100%;height:100%;object-fit:cover;display:block}
 .gal.cg{height:200px;border-radius:12px}
 .gal.strip{height:clamp(150px,26vw,280px);border-radius:24px;margin-top:44px}
-.gb{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border:none;border-radius:50%;background:rgba(255,255,255,.88);color:var(--lf);cursor:pointer;font-size:1.2rem;line-height:1;display:grid;place-items:center}
+.gb{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border:none;border-radius:50%;background:rgba(255,255,255,.88);color:var(--lf);cursor:pointer;font-size:1.2rem;line-height:1;z-index:2}
 .gb:hover{background:#fff}
 .gb.l{left:10px}.gb.r{right:10px}
 .pp{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-bottom:30px}
@@ -166,11 +166,11 @@ col_t:"La col·lecció",col_p:"Tria el bloc que vols explorar.",explore:"Explora
 home_t:"La nostra col·lecció",home_cols:"Explora per blocs",
 home_proj_t:"Un projecte amb sentit",home_proj_p:"Part del que fem va destinat al Projecte Geosmina (ONG Crece). Cada compra i cada donació hi suma.",home_proj_b:"Conèixer el projecte",
 size:"Tria el tamany",more:"Més informació",
-add:"Afegir",buy:"Comprar",total:"Total",pay:"Pagar amb Stripe",continue:"Continuar comprant",empty:"El carretó és buit",remove:"Treure",soon:"Properament",foot:"Fet a mà amb amor",err:"No s'ha pogut completar l'acció.",
+add:"Afegir",buy:"Comprar",total:"Total",pay:"Pagar amb Stripe",continue:"Continuar comprant",empty:"El carretó és buit",remove:"Treure",soon:"Properament",foot:"Fet a mà amb amor",err:"No s'ha pogut completar l'acció. Torna-ho a provar.",
 proj_t:"El nostre projecte",proj_p:"Gyda 105 neix a una masia i forma part d'un projecte solidari amb una ONG.",
-proj_h:"Terra, plantes i comunitat",proj_txt:"Cultivem amb agricultura regenerativa i recollim de manera silvestre, i fem créixer un projecte que cuida persones i territori. Les donacions ens permeten sumar i fer créixer l'ONG.",
+proj_h:"Terra, plantes i comunitat",proj_txt:"Cultivem amb agricultura regenerativa i recollim de manera silvestre, i fem créixer un projecte que cuida persones i territori. Les donacions ens permeten continuar amb la nostra tasca.",
 don_t:"Fes una donació",don_p:"Tria un import. El pagament és segur, amb Stripe.",other:"Un altre import (€)",don_b:"Donar",don_err:"Introdueix un import d'1 € o més.",
-con_t:"Contacte",con_p:"Ens encantarà llegir-te.",name:"Nom",email:"Correu electrònic",message:"Missatge",send:"Enviar",sent:"Gràcies! Missatge enviat.",con_err:"No s'ha pogut enviar. Escriu-nos a hola@gyda105.com.",mail:"Correu",phone:"Telèfon",place:"Ubicació",
+con_t:"Contacte",con_p:"Ens encantarà llegir-te.",name:"Nom",email:"Correu electrònic",message:"Missatge",send:"Enviar",sent:"Gràcies! Missatge enviat.",con_err:"No s'ha pogut enviar. Escriu-nos a hola@gyda105.com.",mail:"Correu",phone:"Telèfon",place:"Ubicació"
 },
 es:{nav_home:"Inicio",nav_col:"Colección",nav_proj:"Nuestro proyecto",nav_contact:"Contacto",cart:"Carrito",
 hero_t:"Naturaleza, <em>en calma</em>",hero_p:"Cosmética natural artesanal, elaborada en nuestra masía con plantas de agricultura regenerativa y recolección silvestre.",hero_b:"Ver la colección",
@@ -181,11 +181,11 @@ col_t:"La colección",col_p:"Elige el bloque que quieres explorar.",explore:"Exp
 home_t:"Nuestra colección",home_cols:"Explora por bloques",
 home_proj_t:"Un proyecto con sentido",home_proj_p:"Parte de lo que hacemos va destinado al Proyecto Geosmina (ONG Crece). Cada compra y cada donación suma.",home_proj_b:"Conocer el proyecto",
 size:"Elige el tamaño",more:"Más información",
-add:"Añadir",buy:"Comprar",total:"Total",pay:"Pagar con Stripe",continue:"Seguir comprando",empty:"El carrito está vacío",remove:"Quitar",soon:"Próximamente",foot:"Hecho a mano con amor",err:"No se pudo completar la acción.",
+add:"Añadir",buy:"Comprar",total:"Total",pay:"Pagar con Stripe",continue:"Seguir comprando",empty:"El carrito está vacío",remove:"Quitar",soon:"Próximamente",foot:"Hecho a mano con amor",err:"No se pudo completar la acción. Inténtalo de nuevo.",
 proj_t:"Nuestro proyecto",proj_p:"Gyda 105 nace en una masía y forma parte de un proyecto solidario con una ONG.",
-proj_h:"Tierra, plantas y comunidad",proj_txt:"Cultivamos con agricultura regenerativa y recolectamos de forma silvestre, y hacemos crecer un proyecto que cuida de las personas y del territorio. Las donaciones nos permiten sumar y hacer crecer a la ONG.",
+proj_h:"Tierra, plantas y comunidad",proj_txt:"Cultivamos con agricultura regenerativa y recolectamos de forma silvestre, y hacemos crecer un proyecto que cuida de las personas y del territorio. Las donaciones nos permiten continuar con nuestra labor.",
 don_t:"Haz una donación",don_p:"Elige un importe. El pago es seguro, con Stripe.",other:"Otro importe (€)",don_b:"Donar",don_err:"Introduce un importe de 1 € o más.",
-con_t:"Contacto",con_p:"Nos encantará leerte.",name:"Nombre",email:"Correo electrónico",message:"Mensaje",send:"Enviar",sent:"¡Gracias! Mensaje enviado.",con_err:"No se pudo enviar. Escríbenos a hola@gyda105.com.",mail:"Correo",phone:"Teléfono",place:"Ubicación",
+con_t:"Contacto",con_p:"Nos encantará leerte.",name:"Nombre",email:"Correo electrónico",message:"Mensaje",send:"Enviar",sent:"¡Gracias! Mensaje enviado.",con_err:"No se pudo enviar. Escríbenos a hola@gyda105.com.",mail:"Correo",phone:"Teléfono",place:"Ubicación"
 },
 en:{nav_home:"Home",nav_col:"Collection",nav_proj:"Our project",nav_contact:"Contact",cart:"Cart",
 hero_t:"Nature, <em>at peace</em>",hero_p:"Handmade natural cosmetics, crafted on our farmhouse with regeneratively grown and wild-harvested plants.",hero_b:"View the collection",
@@ -196,11 +196,11 @@ col_t:"The collection",col_p:"Choose the block you want to explore.",explore:"Ex
 home_t:"Our collection",home_cols:"Explore by block",
 home_proj_t:"A project with meaning",home_proj_p:"Part of what we do goes to the Geosmina Project (NGO Crece). Every purchase and every donation counts.",home_proj_b:"Discover the project",
 size:"Choose size",more:"More information",
-add:"Add",buy:"Buy now",total:"Total",pay:"Pay with Stripe",continue:"Continue shopping",empty:"Your cart is empty",remove:"Remove",soon:"Coming soon",foot:"Handmade with love",err:"The action could not be completed.",
+add:"Add",buy:"Buy now",total:"Total",pay:"Pay with Stripe",continue:"Continue shopping",empty:"Your cart is empty",remove:"Remove",soon:"Coming soon",foot:"Handmade with love",err:"The action could not be completed. Please try again.",
 proj_t:"Our project",proj_p:"Gyda 105 was born on a farmhouse and is part of a charitable project with an NGO.",
-proj_h:"Land, plants and community",proj_txt:"We farm regeneratively and harvest wild plants, growing a project that cares for people and the land. Donations allow the NGO's activities to continue and expand.",
+proj_h:"Land, plants and community",proj_txt:"We farm regeneratively and harvest wild plants, growing a project that cares for people and the land. Donations allow the NGO's activities to continue.",
 don_t:"Make a donation",don_p:"Choose an amount. Payment is secure, via Stripe.",other:"Other amount (€)",don_b:"Donate",don_err:"Enter an amount of €1 or more.",
-con_t:"Contact",con_p:"We'd love to hear from you.",name:"Name",email:"Email",message:"Message",send:"Send",sent:"Thank you! Message sent.",con_err:"Could not send. Please email us at hola@gyda105.com.",mail:"Email",phone:"Phone",place:"Location",
+con_t:"Contact",con_p:"We'd love to hear from you.",name:"Name",email:"Email",message:"Message",send:"Send",sent:"Thank you! Message sent.",con_err:"Could not send. Please email us at hola@gyda105.com.",mail:"Email",phone:"Phone",place:"Location"
 },
 };
 
@@ -227,19 +227,19 @@ const SA=[{l:"250 ml",p:1200}];
 const PK=[{l:"Pack",p:3900}];
 
 const LAV={
-ca:L("L'hidrolat d'espígol s'obté mitjançant la destil·lació al vapor de la flor d'espígol cultivada a Mas Sales. És un producte pur, sense alcohol ni additius, que conserva totes les propietats hidrants i calmants de la planta.",[["Calmant","Alleuja irritacions i vermellors de forma immediata."],["Regenerador","Afavoreix la recuperació de la pell i l'equilibri cel·lular."],["Astringent i refrescant","Tonifica els porus i deixa una sensació de neteja i suavitat."]],[ ["Origen","Collita de cultiu d'agricultura regenerativa."],["Acció","Calmant, antiinflamatòria i antisèptica. Actua com un regenerador cutani que suavitza la pell després de l'exposició solar, l'afaitat o la depilació."],["Aroma","Suau, floral i lleugerament herbacé. Ideal per a la cura diària de la pell."] ]),
-es:L("El hidrolato de espliego se obtiene mediante la destilación al vapor de la flor de espliego cultivada en Mas Sales. Es un producto puro, sin alcohol ni aditivos, que conserva todas las propiedades hidratantes y calmantes de la planta.",[["Calmante","Alivia irritaciones y rojeces de forma inmediata."],["Regenerador","Favorece la recuperación de la piel y el equilibrio celular."],["Astringente y refrescante","Tonifica los poros y deja una sensación de limpieza y suavidad."]],[ ["Origen","Cosecha de cultivo de agricultura regenerativa."],["Acción","Calmante, antiinflamatoria y antiséptica. Actúa como regenerador cutáneo que suaviza la piel tras la exposición solar, el afeitado o la depilación."],["Aroma","Suave, floral y ligeramente herbáceo. Ideal para la rutina diaria del rostro."] ]),
-en:L("Lavender hydrosol is obtained by steam distillation of lavender flowers grown at Mas Sales. It is a pure product, free of alcohol and additives, that preserves the hydrating and calming properties of the plant.",[["Soothing","Relieves irritation and redness immediately."],["Regenerating","Supports skin recovery and cellular balance."],["Astringent and refreshing","Tones the pores and leaves skin feeling clean and soft."]],[ ["Origin","Crop grown with regenerative farming."],["Action","Soothing, anti-inflammatory and antiseptic. Acts as a skin regenerator that calms the skin after sun exposure, shaving or waxing."],["Scent","Soft, floral and lightly herbaceous. Perfect for everyday face care."] ])
+ca:L("L'hidrolat d'espígol s'obté mitjançant la destil·lació al vapor de la flor d'espígol cultivada a Mas Sales. És un producte pur, sense alcohol ni additius, que conserva totes les propietats refrescants i calmants de la planta.",[["Beneficis","Calma i refresca la pell"],["Usos","Tonifica i aporta sensació de benestar"]],[['"ID"',"Floral hydrosol"]]),
+es:L("El hidrolato de espliego se obtiene mediante la destilación al vapor de la flor de espliego cultivada en Mas Sales. Es un producto puro, sin alcohol ni aditivos, que conserva todas las propiedades refrescantes y calmantes de la planta.",[["Beneficios","Calma y refresca la piel"],["Usos","Tonifica y aporta sensación de bienestar"]],[['"ID"',"Floral hydrosol"]]),
+en:L("Lavender hydrosol is obtained by steam distillation of lavender flowers grown at Mas Sales. It is a pure product, free of alcohol and additives, that preserves the refreshing and calming properties of the plant.",[["Benefits","Calms and refreshes the skin"],["Uses","Tones and brings a sense of well-being"]],[['"ID"',"Floral hydrosol"]])
 };
 const ROM={
-ca:L("L'hidrolat de romaní s'obté mitjançant la destil·lació artesanal de fulles i flors de plantes de collita silvestre. Gràcies a la seva acció purificant i antioxidant, és un tònic molt útil per a pells mixtes, grasses o apagades.",[["Equilibrant","Regula l'excés de greix i ajuda a tancar els porus en pells mixtes o amb tendència acneica."],["Revitalitzant","Aporta lluminositat a les pells madures o apagades gràcies al seu poder antioxidant."],["Astringent","Refresca i deixa la pell amb un aspecte més net i viu."]],[ ["Origen","Collita silvestre seleccionada a mà."],["Acció","Astringent, purificant i restauradora del to de la pell."],["Aroma","Fresc, intens i camforat. Una fragància herbàcia que evoca el camp i la boscositat."] ]),
-es:L("El hidrolato de romero se obtiene mediante la destilación artesanal de hojas y flores de plantas de recolección silvestre. Gracias a su acción purificante y antioxidante, es un tónico muy útil para pieles mixtas, grasas o apagadas.",[["Equilibrante","Regula el exceso de grasa y ayuda a cerrar los poros en pieles mixtas o con tendencia acneica."],["Revitalizante","Aporta luminosidad a las pieles maduras o apagadas gracias a su poder antioxidante."],["Astringente","Refresca y deja la piel con un aspecto más limpio y vivo."]],[ ["Origen","Recolección silvestre seleccionada a mano."],["Acción","Astringente, purificante y restauradora del tono de la piel."],["Aroma","Fresco, intenso y alcanforado. Una fragancia herbácea que evoca el campo y el bosque."] ]),
-en:L("Rosemary hydrosol is obtained by artisanal distillation of the leaves and flowers of wild-harvested plants. Thanks to its purifying and antioxidant action, it is an excellent tonic for combination, oily or dull skin.",[["Balancing","Regulates excess oil and helps close pores in combination or acne-prone skin."],["Revitalising","Brings radiance to mature or dull skin thanks to its antioxidant power."],["Astringent","Refreshes skin and gives it a cleaner, brighter look."]],[ ["Origin","Wild harvest, selected by hand."],["Action","Astringent, purifying and restorative of skin tone."],["Scent","Fresh, intense and camphorous. A herbaceous fragrance that evokes the countryside and woodland."] ])
+ca:L("L'hidrolat de romaní s'obté mitjançant la destil·lació artesanal de fulles i flors de plantes de collita silvestre. Gràcies a la seva acció purificant i antioxidant, és un tònic molt útil per a la pell i el cabell.",[["Beneficis","Ajuda a netejar i revitalitzar"],["Usos","Ideal per a pell mixta i cabell gras"]],[['"ID"',"Wild rosemary hydrosol"]]),
+es:L("El hidrolato de romero se obtiene mediante la destilación artesanal de hojas y flores de plantas de recolección silvestre. Gracias a su acción purificante y antioxidante, es un tónico muy útil para la piel y el cabello.",[["Beneficios","Ayuda a limpiar y revitalizar"],["Usos","Ideal para piel mixta y cabello graso"]],[['"ID"',"Wild rosemary hydrosol"]]),
+en:L("Rosemary hydrosol is obtained by artisanal distillation of the leaves and flowers of wild-harvested plants. Thanks to its purifying and antioxidant action, it is an excellent tonic for the skin and hair.",[["Benefits","Helps cleanse and revitalize"],["Uses","Ideal for combination skin and oily hair"]],[['"ID"',"Wild rosemary hydrosol"]])
 };
 const FAR={
-ca:L("L'hidrolat de farigola s'obté mitjançant la destil·lació artesanal de les sumitats florals silvestres, recollides a mà en el seu moment de màxima energia botànica. És un tònic amb un poder antiseptic molt útil per a pells amb impureses, greix o tendència acneica.",[["Purificant","Combat impureses i imperfeccions gràcies a les seves propietats antibacterianes naturals."],["Equilibrant","Regula l'excés de greix i ajuda a sanejar els porus de les pells mixtes i grasses."],["Antiseptic","Oferix una sensació de neteja i equilibri immediat."]],[ ["Origen","Collita silvestre seleccionada a mà en el nostre entorn."],["Acció","Antibacteriana, antifúngica i cicatritzant. Actua com un escut botànic que protegeix i desinfecta sense irritar."],["Aroma","Picant, fresc i lleugerament terroso. Un perfum molt viu i medicinal."] ]),
-es:L("El hidrolato de tomillo se obtiene mediante la destilación artesanal de las sumidades floridas silvestres, recogidas a mano en su momento de máxima energía botánica. Es un tónico con un potente poder antiséptico ideal para pieles con impurezas, grasa o tendencia acneica.",[["Purificante","Combate impurezas e imperfecciones gracias a sus propiedades antibacterianas naturales."],["Equilibrante","Regula el exceso de grasa y ayuda a sanear los poros de las pieles mixtas y grasas."],["Antiséptico","Ofrece una sensación de limpieza y equilibrio inmediato."]],[ ["Origen","Recolección silvestre seleccionada a mano en nuestro entorno."],["Acción","Antibacteriana, antifúngica y cicatrizante. Actúa como escudo botánico que protege y desinfecta sin irritar."],["Aroma","Picante, fresco y ligeramente terroso. Un perfume muy vivo y medicinal."] ]),
-en:L("Thyme hydrosol is obtained by artisanal distillation of wild flowering tops, hand-picked at their peak of botanical energy. It is a tonic with strong antiseptic power, ideal for skin with impurities, oiliness or acne-prone tendencies.",[["Purifying","Fights impurities and blemishes thanks to its natural antibacterial properties."],["Balancing","Regulates excess oil and helps cleanse the pores of combination and oily skin."],["Antiseptic","Provides an immediate feeling of cleanliness and balance."]],[ ["Origin","Wild harvest, selected by hand in our surroundings."],["Action","Antibacterial, antifungal and healing. Acts as a botanical shield that protects and disinfects without irritating."],["Scent","Spicy, fresh and slightly earthy. A lively, medicinal perfume."] ])
+ca:L("L'hidrolat de farigola s'obté mitjançant la destil·lació artesanal de les sumitats florals silvestres, recollides a mà en el seu moment de màxima energia botànica. És un tònic amb acció antibacteriana i desodorant.",[["Beneficis","Equilibra la pell i reforça la sensació de neteja"],["Usos","Acompanya la rutina de pell mixta o propensa a imperfeccions"]],[['"ID"',"Wild thyme hydrosol"]]),
+es:L("El hidrolato de tomillo se obtiene mediante la destilación artesanal de las sumidades floridas silvestres, recogidas a mano en su momento de máxima energía botánica. Es un tónico con acción antibacteriana y desodorante.",[["Beneficios","Equilibra la piel y refuerza la sensación de limpieza"],["Usos","Acompaña la rutina de piel mixta o propensa a imperfecciones"]],[['"ID"',"Wild thyme hydrosol"]]),
+en:L("Thyme hydrosol is obtained by artisanal distillation of wild flowering tops, hand-picked at their peak of botanical energy. It is a tonic with strong antiseptic power, ideal for skin with imperfections.",[["Benefits","Balances the skin and reinforces the feeling of cleanliness"],["Uses","Complements the routine for combination or blemish-prone skin"]],[['"ID"',"Wild thyme hydrosol"]])
 };
 
 const CATS=[
@@ -247,19 +247,19 @@ const CATS=[
  name:N("Aigües florals","Aguas florales","Floral waters"),
  sub:N("Hidrolats destil·lats al vapor.","Hidrolatos destilados al vapor.","Steam-distilled hydrosols."),
  desc:{
- ca:["Els hidrolats, també coneguts com a aigües florals, són el ‘tresor líquid’ que s'obté durant el procés de destil·lació artesanal al vapor de les plantes aromàtiques. Mentre l'oli essencial reté les notes més intensives i grasses, l'aigua floral conserva les propietats més suaus, directes i regeneradores de la planta.","Són ideals per a la pell, el cabell i el ritual diari. S'utilitzen com a toner, refresc o acabat després de la neteja per equilibrar la pell i deixar-la amb una sensació de neteja i confort."],
- es:["Los hidrolatos, también conocidos como aguas florales, son el ‘tesoro líquido’ que se obtiene durante el proceso de destilación artesanal al vapor de las plantas aromáticas. Mientras el aceite esencial retiene las notas más intensas y grasas, el agua floral conserva las propiedades más suaves, directas y regeneradoras de la planta.","Son ideales para la piel, el cabello y el ritual diario. Se utilizan como tónico, refresco o final después de la limpieza para equilibrar la piel y dejarla con una sensación de limpieza y confort."],
- en:["Hydrosols, also known as floral waters, are the ‘liquid treasure’ obtained during the artisanal steam distillation of aromatic plants. While the essential oil retains the more intense, fatty notes, the floral water preserves the plant’s gentler, more direct and regenerative properties.","They are ideal for the skin, hair and daily ritual. They are used as a toner, refresher or final step after cleansing to balance the skin and leave it feeling clean and comfortable."]
+ ca:["Els hidrolats, també coneguts com a aigües florals, són el ‘tresor líquid’ que s'obté durant el procés de destil·lació artesanal al vapor de les plantes aromàtiques. Mentre l'oli essencial reté la part més intensa i volàtil, l'aigua floral conserva la seva essència de manera més suau i amable.","S'utilitzen per tonificar, hidratar i equilibrar la pell, i també per refrescar o acompanyar rituals de benestar diari."],
+ es:["Los hidrolatos, también conocidos como aguas florales, son el ‘tesoro líquido’ que se obtiene durante el proceso de destilación artesanal al vapor de las plantas aromáticas. Mientras el aceite esencial retiene la parte más intensa y volátil, el agua floral conserva su esencia de manera más suave y amable.","Se utilizan para tonificar, hidratar y equilibrar la piel, y también para refrescar o acompañar rituales de bienestar diario."],
+ en:["Hydrosols, also known as floral waters, are the ‘liquid treasure’ obtained during the artisanal steam distillation of aromatic plants. While the essential oil retains the more intense, volatile part, the floral water preserves its essence in a softer, gentler way.","They are used to tone, hydrate, and balance the skin, and also to refresh or accompany daily wellbeing rituals."]
  },
  items:[
- {id:"aigua-lavanda",n:N("Aigua floral de lavanda","Agua floral de lavanda","Lavender floral water"),d:N("Calmant i refrescant.","Calmante y refrescante.","Soothing and refreshing."),long:LAV,opts:A2},
- {id:"aigua-romani",n:N("Aigua floral de romaní","Agua floral de romero","Rosemary floral water"),d:N("Tonificant i vivificant.","Tonificante y vivificante.","Toning and invigorating."),long:ROM,opts:A2},
- {id:"aigua-farigola",n:N("Aigua floral de farigola","Agua floral de tomillo","Thyme floral water"),d:N("Purificant i equilibrant.","Purificante y equilibrante.","Purifying and balancing."),long:FAR,opts:A2}
+ {id:"aigua-lavanda",n:N("Aigua floral de lavanda","Agua floral de lavanda","Lavender floral water"),d:N("Calmant i refrescant.","Calmante y refrescante.","Soothing and refreshing."),long:LAV,opt:A2},
+ {id:"aigua-romani",n:N("Aigua floral de romaní","Agua floral de romero","Rosemary floral water"),d:N("Tonificant i vivificant.","Tonificante y vivificante.","Toning and invigorating."),long:ROM,opt:A2},
+ {id:"aigua-farigola",n:N("Aigua floral de farigola","Agua floral de tomillo","Thyme floral water"),d:N("Purificant i equilibrant.","Purificante y equilibrante.","Purifying and balancing."),long:FAR,opt:A2}
  ]},
 {id:"olis-ess",color:"#A9B8A0",
  name:N("Olis essencials","Aceites esenciales","Essential oils"),
  sub:N("100% purs, destil·lats en petita quantitat.","100% puros, destilados en pequeña cantidad.","100% pure, distilled in small quantities."),
- desc:{ca:["Els olis essencials són l'essència concentrada de la planta, obtinguda per destil·lació al vapor. Molt potents: se n'usen unes poques gotes, sempre diluïts."],es:["Los aceites esenciales son la esencia concentrada de la planta, obtenida por destilación al vapor. Muy potentes: se usan unas pocas gotas, siempre diluidas."],en:["Essential oils are the concentrated essence of the plant, obtained by steam distillation. Very potent: just a few drops are used, always diluted."]},
+ desc:{ca:["Els olis essencials són l'essència concentrada de la planta, obtinguda per destil·lació al vapor. Molt potents: se n'usen unes poques gotes, sempre diluïts."],es:["Los aceites esenciales son la esencia concentrada de la planta, obtenida por destilación al vapor. Muy potentes: se usan unas pocas gotas, siempre diluidas."],en:["Essential oils are the concentrated essence of the plant, obtained by steam distillation. Very powerful: only a few drops are used, always diluted."]},
  items:[
  {id:"oe-lavandin",n:N("Oli essencial de lavandin","Aceite esencial de lavandín","Lavandin essential oil"),d:N("Fresc, herbaci i alegre.","Fresco, herbáceo y alegre.","Fresh, herbaceous and cheerful."),opts:OE},
  {id:"oe-romani",n:N("Oli essencial de romaní","Aceite esencial de romero","Rosemary essential oil"),d:N("Intens i estimulant.","Intenso y estimulante.","Intense and stimulating."),opts:OE}
@@ -327,7 +327,7 @@ function slide(b,d){const tr=b.parentNode.querySelector(".track");tr.scrollBy({l
 function tilesHTML(){
   return '<div class="tiles">'+CATS.map((c,i)=>{
    const n=c.items.length;
-   return '<a class="tile" href="#/cat/'+c.id+'" style="background:'+c.color+'"><span class="n">0'+(i+1)+'</span><h3>'+c.name[lang]+'</h3><p>'+c.sub[lang]+'</p><div class="go">'+t("explore")+' · '+n+' '+t("products")+'</div></a>';
+   return '<a class="tile" href="#/cat/'+c.id+'" style="background:'+c.color+'"><span class="n">0'+(i+1)+'</span><h3>'+c.name[lang]+'</h3><p>'+c.sub[lang]+'</p><div class="go">'+t("explore")+' · '+n+' '+(n===1?t("product"):t("products"))+'</div></a>';
   }).join("")+'</div>';
 }
 function pHome(){
@@ -342,10 +342,17 @@ function pHome(){
 function pCol(){
   return '<div class="page-head"><h1>'+t("col_t")+'</h1><p>'+t("col_p")+'</p></div><section><div class="wrap">'+tilesHTML()+'</div></section>';
 }
+function itemDescription(it){
+  if(it && it.long && it.long[lang]) return it.long[lang];
+  if(it && it.d && it.d[lang]) return '<p>'+it.d[lang]+'</p>';
+  return '<p>'+((it && it.n && it.n[lang]) || "")+'</p>';
+}
 function card(c,ci,it,ii){
   const opts='<option value="">'+t("size")+'</option>'+it.opts.map((o,k)=>'<option value="'+k+'">'+o.l+'</option>').join("");
-  const plus=it.long?'<button class="plus" aria-label="'+esc(t("more"))+'" title="'+esc(t("more"))+'" onclick="tg(this)">+</button>':'';
-  const more=it.long?'<div class="more" hidden>'+it.long[lang]+'</div>':'';
+  const moreText=itemDescription(it);
+  const hasMore=Boolean(moreText && moreText.trim());
+  const plus=hasMore?'<button class="plus" aria-label="'+esc(t("more"))+'" title="'+esc(t("more"))+'" onclick="tg(this)">+</button>':'';
+  const more=hasMore?'<div class="more" hidden>'+moreText+'</div>':'';
   return '<div class="card" data-c="'+ci+'" data-i="'+ii+'">'+gal("cg",[it.id+"-1",it.id+"-2",it.id+"-3"],it.n[lang])+ 
   '<div class="titrow"><h3>'+it.n[lang]+'</h3>'+plus+'</div><div class="desc">'+it.d[lang]+'</div>'+more+
   '<select onchange="pick(this)">'+opts+'</select><div class="price"></div>'+
@@ -364,17 +371,17 @@ function pProj(){
   return '<div class="page-head"><h1>'+t("proj_t")+'</h1><p>'+t("proj_p")+'</p></div><section><div class="wrap">'+
   '<div class="pp">'+[1,2,3,4].map(n=>'<div class="sl"><img src="'+IMG_DIR+'projecte-'+n+'.jpg" alt="'+esc(ALT[lang].proj)+'" loading="lazy" onerror="this.style.display=\'none\'"></div>').join("")+'</div>'+
   '<div class="two"><div class="box"><h2>'+t("proj_h")+'</h2><p>'+t("proj_txt")+'</p></div>'+
-  '<div class="box"><h2>'+t("don_t")+'</h2><p>'+t("don_p")+'</p><div class="amounts">'+[1000,2000,5000,10000].map(a=>'<button class="amt'+(a===donAmt?' on':'')+'" onclick="setAmt('+a+')">'+(a/100)+' €</button>').join("")+'</div><input id="don-other" type="number" min="1" step="1" placeholder="'+esc(t("other"))+'" oninput="otherAmt(this.value)"><button class="btn" onclick="donate()">'+t("don_b")+'</button><div class="msg" id="don-msg"></div></div></div></div></section>';
+  '<div class="box"><h2>'+t("don_t")+'</h2><p>'+t("don_p")+'</p><div class="amounts">'+[1000,2000,5000,10000].map(a=>'<button class="amt'+(a===donAmt?' on':'')+'" onclick="setAmt('+a+')">'+(a/100)+' €</button>').join("")+'</div><input id="don-other" type="number" min="1" step="1" placeholder="'+esc(t("other"))+'" oninput="otherAmt(this.value)"><button class="btn" onclick="donate()">'+t("don_b")+'</button><div id="don-msg" class="msg"></div></div></div></div></section>';
 }
 function pCon(){
   return '<div class="page-head"><h1>'+t("con_t")+'</h1><p>'+t("con_p")+'</p></div><section><div class="wrap"><div class="two">'+
-  '<div class="box"><form onsubmit="return sendMsg(event)"><input id="c-name" placeholder="'+esc(t("name"))+'" required><input id="c-mail" type="email" placeholder="'+esc(t("email"))+'" required><textarea id="c-msg" placeholder="'+esc(t("message"))+'" required></textarea><button class="btn" type="submit">'+t("send")+'</button><div class="msg" id="c-res"></div></form></div>'+
+  '<div class="box"><form onsubmit="return sendMsg(event)"><input id="c-name" placeholder="'+esc(t("name"))+'" required><input id="c-mail" type="email" placeholder="'+esc(t("email"))+'" required><textarea id="c-msg" placeholder="'+esc(t("message"))+'" required></textarea><button class="btn" type="submit">'+t("send")+'</button><div id="c-res" class="msg"></div></form></div>'+
   '<div class="box info"><p><strong>'+t("mail")+'</strong>'+CONTACT_EMAIL+'</p><p><strong>'+t("phone")+'</strong>'+PHONE+'</p><p><strong>'+t("place")+'</strong>'+LOCATION+'</p></div></div></div></section>';
 }
 
 /* ===== ROUTER ===== */
 function render(){
-  const h=location.hash.replace(/^#\/?,"" );
+  const h=location.hash.replace(/^#\/?/,"" );
   const parts=h.split("/");
   let r=parts[0]||"home",html;
   if(r==="coleccio")html=pCol();
@@ -430,7 +437,7 @@ function drawCart(){
   $("#total").textContent=fmt(cart.reduce((s,i)=>s+i.p*i.q,0));
   $("#items").innerHTML=cart.length?cart.map(i=>
    '<div class="item"><div><strong>'+esc(i.n)+'</strong><br><small>'+i.l+' · '+fmt(i.p)+'</small><br><button class="rm" onclick="rem(\''+i.k+'\')">'+t("remove")+'</button></div>'+
-   '<div class="qty"><button onclick="chg(\''+i.k+'\',-1)">−</button><span>'+i.q+'</span><button onclick="chg(\''+i.k+'\',1)">+</button></div></div>').join(""): '<p style="color:var(--muted)">'+t("empty")+'</p>';
+   '<div class="qty"><button onclick="chg(\''+i.k+'\',-1)">−</button><span>'+i.q+'</span><button onclick="chg(\''+i.k+'\',1)">+</button></div></div>').join(""):'<p style="color:var(--muted)">'+t("empty")+'</p>';
 }
 async function checkout(){
   if(!cart.length)return;
