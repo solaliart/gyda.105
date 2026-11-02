@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gyda 105 — Cosmètica Natural i Aromateràpia d'Autor</title>
+  
+  <!-- Fonts: Courier Prime (Màquina d'escriure minimalista) + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'gyda-bg': '#F5F4F0',        /* Fons sorra pedra / blanc en os */
+            'gyda-text': '#2B2E2A',      /* Grafit fosc */
+            'gyda-lavender': '#B5AFBA',  /* Lavanda seca */
+            'gyda-sage': '#8C9A84',      /* Verd salvia */
+            'gyda-gold': '#C29B38',      /* Ocre daurat */
+            'gyda-card': '#EDEBE4',      /* Fons de targetes */
+            'gyda-border': '#D8D4C9',    /* Línies i voretes */
+          },
+          fontFamily: {
+            mono: ['"Courier Prime"', 'monospace'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #F5F4F0;
+      color: #2B2E2A;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-typewriter {
+      font-family: 'Courier Prime', monospace;
+    }
+    /* Estil personalitzat per a la barra de desplaçament */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F5F4F0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #B5AFBA;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-gyda-lavender selection:text-white flex flex-col min-h-screen">
+
+  <!-- TOP BAR & NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-gyda-bg/90 backdrop-blur-md border-b border-gyda-border transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo / Identitat de marca -->
+      <a href="#" onclick="showPage('catalog')" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-2xl border border-gyda-text/30 flex items-center justify-center font-typewriter text-xs tracking-tighter group-hover:bg-gyda-sage group-hover:text-white group-hover:border-gyda-sage transition-all duration-300">
+          G105
+        </div>
+        <div class="flex flex-col">
+          <span class="font-typewriter text-lg tracking-widest uppercase font-bold text-gyda-text">Gyda 105</span>
+          <span class="text-[10px] tracking-widest text-gyda-text/60 uppercase font-mono">Projecte Geosmina</span>
+        </div>
+      </a>
+
+      <!-- Menú principal -->
+      <nav class="hidden md:flex items-center space-x-8 font-typewriter text-xs tracking-wider uppercase">
+        <button onclick="showPage('catalog')" id="nav-catalog" class="hover:text-gyda-sage transition-colors border-b border-transparent hover:border-gyda-sage pb-1">
+          <span data-i18n="nav.catalog">Catàleg</span>
+        </button>
+        <button onclick="showPage('plants')" id="nav-plants" class="hover:text-gyda-sage transition-colors border-b border-transparent hover:border-gyda-sage pb-1">
+          <span data-i18n="nav.plants">Plantes</span>
+        </button>
+        <a href="#about" onclick="showPage('catalog')" class="hover:text-gyda-sage transition-colors border-b border-transparent hover:border-gyda-sage pb-1">
+          <span data-i18n="nav.about">Geosmina</span>
+        </a>
+      </nav>
+
+      <!-- Selector d'idioma i Carretó -->
+      <div class="flex items-center space-x-4 sm:space-x-6">
+        
+        <!-- Selector d'idioma (CAT / ESP / ENG) -->
+        <div class="inline-flex rounded-2xl p-1 bg-gyda-card border border-gyda-border font-typewriter text-xs">
+          <button onclick="setLanguage('cat')" id="lang-cat" class="px-2 py-1 rounded-xl transition-all font-bold bg-gyda-bg shadow-sm text-gyda-text">CAT</button>
+          <button onclick="setLanguage('esp')" id="lang-esp" class="px-2 py-1 rounded-xl transition-all text-gyda-text/60 hover:text-gyda-text">ESP</button>
+          <button onclick="setLanguage('eng')" id="lang-eng" class="px-2 py-1 rounded-xl transition-all text-gyda-text/60 hover:text-gyda-text">ENG</button>
+        </div>
+
+        <!-- Botó del carretó -->
+        <button onclick="toggleCart(true)" class="relative p-2.5 rounded-2xl border border-gyda-border bg-gyda-card hover:bg-gyda-lavender hover:text-white hover:border-gyda-lavender transition-all duration-300 flex items-center gap-2 group">
+          <svg class="w-4 h-4 text-gyda-text group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <span id="cart-count" class="font-typewriter text-xs font-bold bg-gyda-gold text-white px-2 py-0.5 rounded-xl">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECCIÓ PRINCIPAL D'AMBITO (Pàgina de Catàleg o Pàgina de Plantes) -->
+  <main class="flex-grow">
+    
+    <!-- VISTA: CATÀLEG I BOTIGA -->
+    <div id="page-catalog" class="space-y-16 pb-20">
+      
+      <!-- HERO BANNER -->
+      <section class="relative h-[65vh] min-h-[450px] w-full flex items-center justify-center overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?auto=format&fit=crop&q=80&w=1800" 
+             alt="Camps de lavanda i natura artesana" 
+             class="absolute inset-0 w-full h-full object-cover filter brightness-[0.85] contrast-[0.95]">
+        <div class="absolute inset-0 bg-gradient-to-t from-gyda-bg via-black/20 to-black/40"></div>
+        
+        <div class="relative z-10 max-w-3xl mx-auto text-center px-4 space-y-4">
+          <span class="inline-block font-typewriter text-xs tracking-widest text-white uppercase bg-gyda-sage/80 backdrop-blur-md px-4 py-1.5 rounded-2xl" data-i18n="hero.badge">
+            Edició Artesanal Limitada
+          </span>
+          <h1 class="font-typewriter text-3xl sm:text-5xl font-bold text-white tracking-tight leading-tight" data-i18n="hero.title">
+            L'essència pura de les nostres plantes, sense artificis.
+          </h1>
+          <p class="text-sm sm:text-base text-gray-200 max-w-xl mx-auto font-light leading-relaxed" data-i18n="hero.subtitle">
+            Cosmètica natural i aromateràpia elaborada a la masia familiar a través de cultiu regeneratiu i destil·lació artesanal.
+          </p>
+          <div class="pt-4">
+            <a href="#block-1" class="inline-block font-typewriter text-xs tracking-wider uppercase px-6 py-3 rounded-2xl bg-gyda-bg text-gyda-text hover:bg-gyda-gold hover:text-white transition-all duration-300 shadow-md">
+              <span data-i18n="hero.btn">Explorar el catàleg</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+
+        <!-- BLOC 1: AIGÜES FLORALS (HIDROSOLS) -->
+        <section id="block-1" class="space-y-8 scroll-mt-28">
+          <div class="border-b border-gyda-border pb-6 space-y-2">
+            <span class="font-typewriter text-xs text-gyda-gold uppercase tracking-widest font-bold">01. Categoria</span>
+            <h2 class="font-typewriter text-2xl sm:text-3xl font-bold text-gyda-text" data-i18n="cat1.title">Aigües Florals & Hidrosols</h2>
+            <p class="text-sm text-gyda-text/70 max-w-3xl font-light leading-relaxed" data-i18n="cat1.desc">
+              Obtingudes directament durant la destil·lació per arrossegament de vapor d'aigua de les nostres plantes aromàtiques. Conserven micro-fraccions d'oli essencial i propietats hidrosolubles d'alta puresa per tonificar, refrescar i equilibrar la pell diàriament.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="grid-cat1"></div>
+        </section>
+
+        <!-- BLOC 2: OLIS ESSENCIALS PURS -->
+        <section id="block-2" class="space-y-8 scroll-mt-28">
+          <div class="border-b border-gyda-border pb-6 space-y-2">
+            <span class="font-typewriter text-xs text-gyda-gold uppercase tracking-widest font-bold">02. Categoria</span>
+            <h2 class="font-typewriter text-2xl sm:text-3xl font-bold text-gyda-text" data-i18n="cat2.title">Olis Essencials Purs</h2>
+            <p class="text-sm text-gyda-text/70 max-w-3xl font-light leading-relaxed" data-i18n="cat2.desc">
+              L'essència concentrada i volàtil de la planta en el seu estat més pur. Cultivats orgànicament i destil·lats lentament a baixa pressió per preservar totes les molècules aromàtiques i terapèutiques originals.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="grid-cat2"></div>
+        </section>
+
+        <!-- BLOC 3: ROLL-ONS D'AROMATERÀPIA -->
+        <section id="block-3" class="space-y-8 scroll-mt-28">
+          <div class="border-b border-gyda-border pb-6 space-y-2">
+            <span class="font-typewriter text-xs text-gyda-gold uppercase tracking-widest font-bold">03. Categoria</span>
+            <h2 class="font-typewriter text-2xl sm:text-3xl font-bold text-gyda-text" data-i18n="cat3.title">Roll-ons d'Aromateràpia</h2>
+            <p class="text-sm text-gy
